@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Auto Git Commit & Push",
+  "description": "根据当前 git 代码改动，自动生成 git 提交描述，并执行 git add、commit 和 push 操作",
+  "version": "1",
+  "when": {
+    "type": "userTriggered"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "请执行以下操作：1. 运行 `git diff` 和 `git diff --cached` 查看当前所有代码改动；2. 根据改动内容，用中文生成一条简洁且有意义的 git commit message（遵循 conventional commits 格式）；3. 执行 `git add .` 暂存所有改动；4. 使用生成的 commit message 执行 `git commit`；5. 执行 `git push` 推送到远程仓库。如果 push 失败，尝试使用 `git push -u origin HEAD` 推送当前分支。"
+  }
+}
